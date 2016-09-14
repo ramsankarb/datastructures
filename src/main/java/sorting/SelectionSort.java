@@ -1,9 +1,11 @@
+package sorting;
+
 import java.util.ArrayList;
 
 /**
  * Created by Ramshankar on 9/11/16.
  */
-public class BubbleSort {
+public class SelectionSort {
     public static void main(String args[])
     {
         System.out.println("Hello");
@@ -21,26 +23,22 @@ public class BubbleSort {
 
         System.out.println(arrayList.toString());
 
-        System.out.println("After sorting : " + BubbleSort(arrayList));
+        System.out.println("After sorting : " + selectionSort(arrayList));
 
 
     }
-
-    public static ArrayList<Integer> BubbleSort(ArrayList<Integer> arrayList)
-    {
-        if( arrayList!=null && arrayList.size()>1){
-            int arraySize = arrayList.size();
-            for(int j=arraySize;j>0;j--){
-                System.out.println("j "+j);
-                for (int i = 0; i < j-1; i++) {
-                    System.out.println("    i "+i);
-                    if(arrayList.get(i)>arrayList.get(i+1)){
+    public static ArrayList<Integer> selectionSort(ArrayList<Integer> arrayList){
+        int arraySize=arrayList.size();
+        if(arrayList!=null &&arraySize >0){
+            for (int i=0;i<arraySize;i++) {
+                for(int j=i+1;j<arraySize;j++){
+                    if(arrayList.get(i)>arrayList.get(j)){
                         Integer temp= arrayList.get(i);
-                        arrayList.set(i,arrayList.get(i+1));
-                        arrayList.set(i+1, temp);
-
+                        arrayList.set(i,arrayList.get(j));
+                        arrayList.set(j, temp);
                     }
                 }
+
             }
         }
         return arrayList;
